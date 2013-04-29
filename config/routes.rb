@@ -1,18 +1,15 @@
 App::Application.routes.draw do
 
 
+  root :to => 'home#index'
 
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-
+  resources :sessions
   resources :application_forms
-
-
   resources :questions
   resources :applicants
 
-  root :to => 'application_forms#new'
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
 
   # The priority is based upon order of creation:

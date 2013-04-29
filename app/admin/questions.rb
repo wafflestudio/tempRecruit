@@ -1,3 +1,3 @@
-ActiveAdmin.register Questions do
+ActiveAdmin.register Question do
   
 end

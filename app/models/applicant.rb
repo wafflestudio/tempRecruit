@@ -1,5 +1,6 @@
 class Applicant < ActiveRecord::Base
-  attr_accessible :department, :email, :name, :university, :year, :password, :password_confirmation, :period_id, :cell_phone
+  attr_accessible :department, :email, :name, :university, :year, 
+    :password, :password_confirmation, :period_id, :cell_phone
 
   has_secure_password
   has_many :answers
@@ -7,6 +8,6 @@ class Applicant < ActiveRecord::Base
   has_one :application_form
 
 
-  validate_presence_of :name, :email, :year, :department, :cell_phone
+  validates_presence_of :name, :email, :year, :department, :cell_phone
 
 end

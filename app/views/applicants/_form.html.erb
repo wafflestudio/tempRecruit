@@ -1,0 +1,31 @@
+
+<%= form_for @applicant do |f| %> 
+  <% if @applicant.errors.any? %>
+    <ul>
+      <% @applicant.errors.full_messages.each do |err| %>
+        <li> <%= err %></li>
+      <% end %>
+    </ul>
+
+
+  <% end %>
+
+
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <%= f.submit "Create an account" %>
+
+<% end %>

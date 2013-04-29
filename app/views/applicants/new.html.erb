@@ -1,1 +1,59 @@
-<h1> New Applicant </h1>
+
+<%= form_for @applicant do |f| %>
+
+  <% if @applicant.errors.any? %>
+    <ul>
+      <% @applicant.errors.full_messages.each do |err| %>
+        <li> <%= err %></li>
+      <% end %>
+    </ul>
+
+
+  <% end %>
+
+  <div>
+    <%= f.label :name, "이름" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :email, "이메일" %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :password, "비밀번호" %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation, "비밀번호 확인" %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div>
+    <%= f.label :university, "학교" %>
+    <%= f.text_field :university %>
+  </div>
+
+  <div>
+    <%= f.label :department, "학과" %>
+    <%= f.text_field :department %>
+  </div>
+
+  <div>
+    <%= f.label :year, "학년" %>
+    <%= f.text_field :year %>
+  </div>
+  <div>
+    <%= f.label :cell_phone, "휴대폰번호" %>
+    <%= f.text_field :cell_phone %>
+  </div>
+
+  <%= f.submit "Submit" %>
+<% end %>
+
+
+
+
+
