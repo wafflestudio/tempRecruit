@@ -3,4 +3,10 @@ class Period < ActiveRecord::Base
   has_many :questions
   has_many :periods
 
+  
+  def self.current_period
+    return -> { return last.due_date > Time.now }
+  end
+
+
 end

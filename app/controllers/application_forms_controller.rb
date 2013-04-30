@@ -1,4 +1,7 @@
 class ApplicationFormsController < ApplicationController
+
+  before_filter :check_period
+
   def new
 
   end
@@ -14,4 +17,6 @@ class ApplicationFormsController < ApplicationController
   def update
 
   end
+
+
 end

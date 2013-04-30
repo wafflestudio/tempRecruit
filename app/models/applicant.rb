@@ -5,7 +5,7 @@ class Applicant < ActiveRecord::Base
   has_secure_password
   has_many :answers
   belongs_to :period
-  has_one :application_form
+  has_one :application_form, dependent: :destroy
 
 
   validates_presence_of :name, :email, :year, :department, :cell_phone
