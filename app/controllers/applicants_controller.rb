@@ -11,6 +11,7 @@ class ApplicantsController < ApplicationController
 
   def create
     applicant = Applicant.new(params[:applicant])
+    applicant.period = current_period
     if applicant.save
       applicant.create_application_form
       session[:user_id] = applicant.id

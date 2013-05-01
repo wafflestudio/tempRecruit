@@ -8,6 +8,7 @@ class Applicant < ActiveRecord::Base
   has_one :application_form, dependent: :destroy
 
 
-  validates_presence_of :name, :email, :year, :department, :cell_phone
+  validates_presence_of :name, :email, :year, :university, :department, :cell_phone
+  validates_presence_of :period
 
 end

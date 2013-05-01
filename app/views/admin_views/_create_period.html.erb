@@ -1,0 +1,32 @@
+
+
+<p><strong>There are not any currently active Application Period </strong></p>
+<h3><strong>Start a new Application Period</strong></h3>
+
+<%= form_for Period.new do |f| %>
+
+  <div class="blank_slate_container">
+    <span class="blank_slate">
+      <strong><%= f.label :start_date %></strong>
+      <%= f.date_select :start_date, order: [ :day, :month, :year ] %>
+    </span>
+  </div>
+  <div class="blank_slate_container">
+    <span class="blank_slate">
+      <strong><%= f.label :due_date %></strong>
+      <%= f.date_select :due_date, order: [ :day, :month, :year ] %>
+    </span>
+  </div>
+  <div>
+    <div class="blank_slate_container">
+      <span class="blank_slate">
+        <%= f.submit "Submit" %>
+      </span>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+

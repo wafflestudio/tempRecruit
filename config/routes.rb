@@ -1,15 +1,20 @@
 App::Application.routes.draw do
 
 
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
+  get "periods/end_current_period", as: :end_current_period
+
   root :to => 'home#index'
 
   resources :sessions
   resources :application_forms
   resources :questions
   resources :applicants
+  resources :periods
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
 
 
   # The priority is based upon order of creation:
