@@ -2,15 +2,27 @@
 <html>
 <head>
   <title>와플스튜디오 10기 리크루팅</title>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-  <%= yield %>
+  <!--[if lt IE 9]>
+
+    <p> You Shall not pass </p>
+    <p> 우리는 웹 개발 동아리입니다. 그롬이나 파이어폭스를 깔고 오세요 :) </p>
+
+  <![endif]-->
+
+  <!--[if !IE]><!-->
+    <%= yield %>
+  <!--<![endif]-->
+
 
 </body>
 </html>
