@@ -1,5 +1,15 @@
 
 
+CHANGELOG:
+
+--> Created the admin_interface /admin
+	--> Username: admin@waffletudio.com
+	--> Password: password
+
+	Created a panel to creat a new Application period and end one
+
+
+
 TODO:
 
 
