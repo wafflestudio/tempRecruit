@@ -1,26 +1,28 @@
 class ApplicantForm extends Movable
-  constructor: (element) ->
+  constructor: (@id = id) ->
     super()
-    @element = element
+    @element = $("##{id}")
 
   toCenter: ->
     x = ($(window).width() - @w) / 2
     y = ($(window).height() - @h) / 2
 
+    @element.show()
     @txy(x, y)
 
   getLost: ->
     x = Math.floor(Math.random() * $(window).width())
     y = $(window).height() + 100
 
-    @txy(x, y)
+    callback = => @element.hide()
+    @txy(x, y, 300, callback)
 
 class window.ApplicantFormController
   constructor: ->
-    @currentForm = 0
+    @currentFormIndex = 0
     @max = 4
-    @forms = [0..4].map((i) -> new ApplicantForm($("##{i}")))
-    form.getLost() for form in @forms
+    @forms = [0..4].map((i) -> new ApplicantForm(i))
+    (form.getLost() if form.id isnt 0) for form in @forms
 
     @forms[0].toCenter()
 
@@ -28,16 +30,14 @@ class window.ApplicantFormController
     $(".prevField").on("click", @prevForm)
       
   nextForm: =>
-    console.log(@currentForm)
-    return if @currentForm > @max - 1
-    @forms[@currentForm++].getLost()
-    @forms[@currentForm].toCenter()
+    return if @currentFormIndex > @max - 1
+    @forms[@currentFormIndex++].getLost()
+    @forms[@currentFormIndex].toCenter()
 
   prevForm: =>
-    return unless @currentForm > 0
-    @forms[@currentForm--].getLost()
-    @forms[@currentForm].toCenter()
+    return unless @currentFormIndex > 0
+    @forms[@currentFormIndex--].getLost()
+    @forms[@currentFormIndex].toCenter()
 
-  currFormToCenter: ->
-    @forms[@currentForm]
-
+  currentForm: ->
+    @forms[@currentFormIndex]
