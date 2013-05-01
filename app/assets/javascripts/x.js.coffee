@@ -30,7 +30,6 @@ class window.ApplicantFormController
     $(".prevField").on("click", @prevForm)
       
   nextForm: =>
-    console.log(@currentFormIndex)
     return if @currentFormIndex > @max - 1
     @forms[@currentFormIndex++].getLost()
     @forms[@currentFormIndex].toCenter()
