@@ -6,8 +6,19 @@ class ApplicationForm < ActiveRecord::Base
     'PLANNER'
   ]
   
-  attr_accessible :applicant_id, :category
+  attr_accessible :category, :period_id
+
   belongs_to :applicant
-#  validate :category, inclusion: { in: ACCEPTABLE_CATEGORIES }
+  belongs_to :period
+  has_many :answers
+  validate :category, inclusion: { in: ACCEPTABLE_CATEGORIES }
+
+
+#  accepts_nested_attributes_for :answers
+
+  def questions
+    period.questions
+  end
+
 end
 

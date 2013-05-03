@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501131609) do
+ActiveRecord::Schema.define(:version => 20130503091144) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(:version => 20130501131609) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
-    t.integer  "applicant_id"
+    t.integer  "application_form_id"
     t.string   "content"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "applicants", :force => true do |t|
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20130501131609) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.integer  "cell_phone"
+    t.integer  "period_id"
   end
 
   create_table "application_forms", :force => true do |t|
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20130501131609) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "category"
+    t.integer  "period_id"
   end
 
   create_table "periods", :force => true do |t|
@@ -83,10 +85,10 @@ ActiveRecord::Schema.define(:version => 20130501131609) do
 
   create_table "questions", :force => true do |t|
     t.string   "content"
-    t.string   "type"
+    t.string   "answer_type"
     t.integer  "period_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

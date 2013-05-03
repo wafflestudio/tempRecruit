@@ -15,9 +15,9 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: "Not application period" unless current_period
   end
 
-  def authenticate_admin
-    unless current_admin_user
-      flash[:alert] = "Unauthorized access"
+  def authenticate_applicant!
+    unless current_applicant
+      flash[:alert] = "Unauthorized Access"
       redirect_to root_path
     end
   end

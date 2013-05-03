@@ -1,6 +1,6 @@
 class PeriodsController < ApplicationController
 
-  before_filter :authenticate_admin
+  before_filter :authenticate_admin_user!
 
   def create
     period = Period.new(params[:period])

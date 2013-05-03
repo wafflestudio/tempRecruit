@@ -13,13 +13,12 @@ class ApplicantsController < ApplicationController
     applicant = Applicant.new(params[:applicant])
     applicant.period = current_period
     if applicant.save
-      applicant.create_application_form
+      applicant.create_application_form(period_id: current_period.id)
       session[:user_id] = applicant.id
-      redirect_to new_application_form_path
+      redirect_to edit_application_form_path(applicant.application_form)
     else
       render :new
     end
-
   end
 
   def edit
