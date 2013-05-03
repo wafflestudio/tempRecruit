@@ -8,7 +8,7 @@ class Period < ActiveRecord::Base
 
   def self.end_current_period
     c = current_period.first
-    c.due_date = Time.now - 1.week
+    c.due_date = Time.now
     c.save    
   end
 

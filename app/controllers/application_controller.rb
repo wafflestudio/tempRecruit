@@ -17,8 +17,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_applicant!
     unless current_applicant
-      flash[:alert] = "Unauthorized Access"
-      redirect_to root_path
+      redirect_to root_path, alert: "Unauthorized Access"
     end
   end
 

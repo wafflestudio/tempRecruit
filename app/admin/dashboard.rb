@@ -22,7 +22,7 @@ ActiveAdmin.register_page "Dashboard" do
           if current_period
             div :class => "blank_slate_container", :id => "dashboard_default_message" do
               span :class => "blank_slate" do
-                span "There is an ongoing Application Period"
+                span "Ongoing Application Period for " + current_period.name + " gi"
                 small current_period.start_date.to_s + " ~ " + current_period.due_date.to_s
               end
             end

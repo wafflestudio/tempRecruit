@@ -1,7 +1,7 @@
 class ApplicantForm extends Movable
   constructor: (@id = id) ->
     super()
-    @element = $("##{id}")
+    @element = $("#questionField_#{id}")
 
   toCenter: ->
     x = ($(window).width() - @w) / 2
@@ -18,10 +18,10 @@ class ApplicantForm extends Movable
     @txy(x, y, 300, callback)
 
 class window.ApplicantFormController
-  constructor: ->
+  constructor: (@max) ->
     @currentFormIndex = 0
-    @max = 4
-    @forms = [0..4].map((i) -> new ApplicantForm(i))
+    @max = @max - 1
+    @forms = [0..@max].map((i) -> new ApplicantForm(i))
     (form.getLost() if form.id isnt 0) for form in @forms
 
     @forms[0].toCenter()

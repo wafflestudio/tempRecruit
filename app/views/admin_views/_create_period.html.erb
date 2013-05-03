@@ -7,6 +7,12 @@
 
   <div class="blank_slate_container">
     <span class="blank_slate">
+      <strong><%= f.label :name %></strong>
+      <p><%= f.text_field :name, html: { size: 10 } %> 기</p>
+    </span>
+  </div>
+  <div class="blank_slate_container">
+    <span class="blank_slate">
       <strong><%= f.label :start_date %></strong>
       <%= f.date_select :start_date, order: [ :day, :month, :year ] %>
     </span>

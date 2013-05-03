@@ -2,6 +2,10 @@ App::Application.routes.draw do
 
 
 
+  get "answers/create"
+
+  get "answers/update"
+
   get "periods/end_current_period", as: :end_current_period
 
   root :to => 'home#index'
@@ -11,6 +15,7 @@ App::Application.routes.draw do
   resources :questions
   resources :applicants
   resources :periods
+  resources :answers
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

@@ -2,6 +2,11 @@
 
 CHANGELOG:
 
+--> Finalized the Question Creation / modification forms in the admin interface
+--> Fixed bugs in the Models
+--> Added a name field in the periods
+--> Added dynamic questions in the edit_application_form 
+
 --> Created the admin_interface /admin
 	--> Username: admin@waffletudio.com
 	--> Password: password
@@ -11,6 +16,13 @@ CHANGELOG:
 
 
 TODO:
+
+--> Hide all the submit Forms buttons and go to next field on pressing Enter
+--> Saves the answer (by AJAX) when moving the next applicationForm (nextQuestion)
+--> Create a counter in the application_form, (so that later the user would resume from that point)
+--> Create different inputs for differnt question types (helpers)
+--> Create a summary page at the end of the questionnaire
+
 
 
 --> Create a new application form immediately after signup
