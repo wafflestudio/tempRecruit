@@ -13,8 +13,7 @@ class ApplicationForm < ActiveRecord::Base
   has_many :answers
   validate :category, inclusion: { in: ACCEPTABLE_CATEGORIES }
 
-
-  accepts_nested_attributes_for :answers
+#  accepts_nested_attributes_for :answers
 
   def questions
     period.questions

@@ -12,12 +12,12 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
-      end
 
-      column do
-      end
+        panel "Current Stats" do
+          render '/admin_views/stats'
+        end
 
-      column do
+
         panel "Current Period" do
           if current_period
             div :class => "blank_slate_container", :id => "dashboard_default_message" do
@@ -36,6 +36,17 @@ ActiveAdmin.register_page "Dashboard" do
           end
         end
       end
+
+      column span: 2 do
+        panel "Recent Applicants From Current Ongoing Period" do
+          table_for Period.current_period.first.applicants.order('name desc').limit(20) do 
+            column("State") {|applicant| status_tag(applicant.status)  }
+            column("Name") {|applicant| link_to(applicant.name, admin_applicant_path(applicant)) }
+            column :email
+          end
+        end
+      end
+
     end
 
 

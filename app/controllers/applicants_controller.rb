@@ -1,6 +1,7 @@
 class ApplicantsController < ApplicationController
 
   before_filter :check_period
+  before_filter :authenticate_admin_user!, only: [:mark_as_complete]
 
   def new
     if current_applicant
@@ -28,6 +29,13 @@ class ApplicantsController < ApplicationController
 
   def update
 
+  end
+
+  def mark_as_complete
+    applicant = Applicant.find(params[:id])
+    applicant.complete!
+    applicant.save
+    redirect_to admin_applicants_path, notice: "Applicant Status Successfully changed"
   end
 
 end

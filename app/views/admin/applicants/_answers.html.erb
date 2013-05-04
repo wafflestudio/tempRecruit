@@ -1,0 +1,27 @@
+<% context.instance_eval do 
+
+  div class: 'panel' do
+    h3 do
+      "Application Form"
+    end
+    div class: 'panel_contents' do
+      div class: 'attributes_table' do
+        table do
+          tr do
+            th "Question"
+            th "Answer"
+          end
+          resource.answers.each do |ans|
+            tr do
+              td ans.question.content
+              td ans.content
+            end
+          end
+        end
+      end
+    end
+  end
+
+
+
+ end %>

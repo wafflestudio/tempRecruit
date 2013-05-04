@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130503152217) do
+ActiveRecord::Schema.define(:version => 20130504031531) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -62,10 +62,11 @@ ActiveRecord::Schema.define(:version => 20130503152217) do
     t.string   "university"
     t.string   "department"
     t.string   "year"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.integer  "cell_phone"
     t.integer  "period_id"
+    t.string   "status",          :default => "INCOMPLETE"
   end
 
   create_table "application_forms", :force => true do |t|

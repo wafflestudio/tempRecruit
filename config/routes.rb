@@ -2,11 +2,11 @@ App::Application.routes.draw do
 
 
 
-  get "answers/create"
 
-  get "answers/update"
 
   get "periods/end_current_period", as: :end_current_period
+  match "applicants/:id/mark_as_complete", controller: :applicants,
+    action: :mark_as_complete, as: :change_applicant_status
 
   root :to => 'home#index'
 
