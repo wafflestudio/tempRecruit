@@ -6,9 +6,13 @@ ActiveAdmin.register Question do
   filter :period
 
   form do |f|
-    f.inputs "Add a question for " + current_period.name + "gi" do
+    f.inputs "Add a question for the current ongoing Applictaion period" do
       f.input :content
-      f.input :answer_type
+      f.input :answer_type, hint: "(Only the following is supported) " +
+                                  "-- (textfield)" +
+                                  "-- (textarea)\n" + 
+                                  "-- (optionbox;option1;option2;...;optionn)\n"
+      f.input :priority, hint: "An integer representing the order to appear in the application form"
     end
     f.actions
   end
@@ -16,6 +20,7 @@ ActiveAdmin.register Question do
   index do 
     column :content
     column :answer_type
+    column :priority
     actions
 
   end

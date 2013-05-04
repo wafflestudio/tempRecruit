@@ -1,5 +1,9 @@
 class Question < ActiveRecord::Base
-  attr_accessible :content, :period_id, :answer_type
+  
+  default_scope order("priority")
+
+
+  attr_accessible :content, :period_id, :answer_type, :priority
   has_many :answers
   belongs_to :period
 

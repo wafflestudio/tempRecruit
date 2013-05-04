@@ -5,44 +5,28 @@
 <div id = "stage">
   <div id = "moveLayer">
 
-
     <% @answers.each_with_index do |answer, index| %>
       <div id="questionField_<%= index %>" class="applicationForm">
         <%= form_for answer do |f| %>
           <%= f.hidden_field :question_id, value: answer.question.id %>
           <div class = "applicationQuestion"> <%= answer.question.content %> </div>
-          <div class = "applicationTextField"> <%= f.text_area :content %> </div>
-          <%= f.submit "Submit Answer" %>
+          <div class = "applicationTextField"> 
+            <% if /^optionbox\S+/i.match(answer.question.answer_type) %>
+              <% type = answer.question.answer_type %>
+              <% types = type.split(';') %>
+              <% types = types[1, types.length - 1] %>
+              <% types.each do |t| %>
+                <%= f.radio_button :content, t %>
+                <%= f.label "content_#{t}", t.humanize %>
+              <% end %>
+            <% else %>
+              <%= answer_field f, answer.question.answer_type, :content %>
+            <% end %>
+          </div>
+          <%= f.submit "Submit Answer", class: "submitButton" %>
         <% end %>
       </div>
     <% end %>
-
-
-
-
-
-    <!--
-    <div id="0" class="applicationForm">
-      <div class = "applicationQuestion"> Lorem ipsum </div>
-        <div class = "applicationTextField"> <textarea> Lorem ipsum </textarea> </div>
-        </div>
-        <div id="1" class="applicationForm">
-          <div class = "applicationQuestion"> Lorem ipsum </div>
-            <div class = "applicationTextField"> <textarea> Lorem ipsum </textarea> </div>
-            </div>
-            <div id="2" class="applicationForm">
-              <div class = "applicationQuestion"> Lorem ipsum </div>
-                <div class = "applicationTextField"> <textarea> Lorem ipsum </textarea> </div>
-                </div>
-                <div id="3" class="applicationForm">
-                  <div class = "applicationQuestion"> Lorem ipsum </div>
-                    <div class = "applicationTextField"> <textarea> Lorem ipsum </textarea> </div>
-                    </div>
-                    <div id="4" class="applicationForm">
-                      <div class = "applicationQuestion"> Lorem ipsum </div>
-                        <div class = "applicationTextField"> <textarea> Lorem ipsum </textarea> </div>
-                        </div>
-                        --!>
 
   </div>
   <div id = "buttonLayer">
