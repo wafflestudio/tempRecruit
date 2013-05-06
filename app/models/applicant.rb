@@ -21,6 +21,6 @@ class Applicant < ActiveRecord::Base
 
   scope :in_progress, where("applicants.status = ?", "INCOMPLETE")
   scope :complete, where("applicants.status = ?", "COMPLETE")
-  scope :current_period, where("period_id = ?", Period.current_period.first.id)
+#  scope :current_period, where("period_id = ?", Period.current_period.first.id)
 
 end

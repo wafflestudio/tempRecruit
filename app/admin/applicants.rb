@@ -11,7 +11,7 @@ ActiveAdmin.register Applicant do
   scope :all, :default => true
   scope :in_progress
   scope :complete
-  scope :current_period
+#  scope :current_period
 
 #  sidebar :applicant_stats, :partial => "admin_views/stats"
 
