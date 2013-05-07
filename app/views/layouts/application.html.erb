@@ -2,15 +2,11 @@
 <html>
 <head>
   <title>와플스튜디오 10기 리크루팅</title>
-
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
   <!--[if lt IE 9]>
 
@@ -20,9 +16,21 @@
   <![endif]-->
 
   <!--[if !IE]><!-->
-    <%= yield %>
-  <!--<![endif]-->
 
+    <div id = "wrap">
+      <div id = "top_navbar"> <%= render :partial => 'layouts/header' %> </div>
+      <div id = "content" class = "container"> 
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+        <%= yield %>
+      
+      </div>
+      <div id = "push"></div>
+    </div>
+
+    <div id = "footer" class = "container"> <%= render :partial => 'layouts/footer' %> </div>
+  <!--<![endif]-->
 
 </body>
 </html>

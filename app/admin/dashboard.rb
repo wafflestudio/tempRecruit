@@ -17,7 +17,6 @@ ActiveAdmin.register_page "Dashboard" do
           render '/admin_views/stats'
         end
 
-
         panel "Current Period" do
           if current_period
             div :class => "blank_slate_container", :id => "dashboard_default_message" do
