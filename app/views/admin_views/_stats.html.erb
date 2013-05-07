@@ -1,9 +1,2 @@
-
-
-<% applicants = Period.current_period.first.applicants %>
-<h3>Currently <%= applicants.count %> applicants have applied </h3>
-
-
-
-
-
+<% count = if Period.current_period.empty? then 0 else Period.current_period.first.applicants.count end %>
+<h3>Currently <%= count %> applicants have applied </h3>

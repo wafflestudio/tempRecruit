@@ -39,10 +39,12 @@ ActiveAdmin.register_page "Dashboard" do
 
       column span: 2 do
         panel "Recent Applicants From Current Ongoing Period" do
-          table_for Period.current_period.first.applicants.order('name desc').limit(20) do 
-            column("State") {|applicant| status_tag(applicant.status)  }
-            column("Name") {|applicant| link_to(applicant.name, admin_applicant_path(applicant)) }
-            column :email
+          if !(Period.current_period.empty?)
+            table_for Period.current_period.first.applicants.order('name desc').limit(20) do 
+              column("State") {|applicant| status_tag(applicant.status)  }
+              column("Name") {|applicant| link_to(applicant.name, admin_applicant_path(applicant)) }
+              column :email
+            end
           end
         end
       end
