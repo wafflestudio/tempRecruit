@@ -1,6 +1,15 @@
 
+NOTE: Ruby 1.9.3p194 should be used with the app, there are some bugs with 1.9.3p36X
+
+BUGS:
+
+--> Submit button in the edit_application_form doesn't work
+	--> should submit through AJAX
+
 
 CHANGELOG:
+
+--> Fixed scope issues
 
 --> Finalized the Question Creation / modification forms in the admin interface
 --> Fixed bugs in the Models
