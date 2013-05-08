@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+
+  before_filter :check_period
+
   def new
     if current_applicant
       redirect_to edit_application_form_path(current_applicant.application_form)

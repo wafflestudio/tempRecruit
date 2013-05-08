@@ -8,10 +8,10 @@ ActiveAdmin.register Applicant do
   filter :email
   filter :period
 
-  scope :all, :default => true
+  scope :all
   scope :in_progress
   scope :complete
-#  scope :current_period
+  scope :current_period, :default => true
 
 #  sidebar :applicant_stats, :partial => "admin_views/stats"
 

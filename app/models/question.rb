@@ -10,7 +10,7 @@ class Question < ActiveRecord::Base
   validates_presence_of :period, :answer_type, :content
 
   
-  scope :current_period_questions, lambda { where("period_id = ?", Period.current_period.first.id) }
+  scope :current_period_questions, lambda { where("period_id = ?", Period.current_period.first.id) unless Period.current_period.empty? }
 
 
 end
